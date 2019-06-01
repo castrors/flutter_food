@@ -25,9 +25,9 @@ class Product {
 
   static List<Product> getProducts() {
     final reviews = [
-      Review(author: 'Ana', comment: 'Top'),
-      Review(author: 'Bruna', comment: 'Sux'),
-      Review(author: 'Carla', comment: 'Mais ou menos'),
+      Review(author: 'Ana', comment: 'Muito bom! Recomendo.'),
+      Review(author: 'Bruna', comment: 'Achei um cabelo na minha comida, eca!'),
+      Review(author: 'Carla', comment: 'É bom, mas achei muito caro'),
     ];
 
     return [
