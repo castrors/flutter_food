@@ -15,24 +15,55 @@ class CardWidget extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Stack(
+              fit: StackFit.loose,
               children: [
-                Icon(
-                  Icons.monetization_on,
+                Image.network(
+                  product.imageUrl,
+                  height: 400,
+                  fit: BoxFit.fitHeight,
                 ),
-                Text(product.distance)
+                SizedBox(
+                  height: 400,
+                  child: Container(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.monetization_on,
+                            ),
+                            Text(product.distance)
+                          ],
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: FractionalOffset.bottomCenter,
+                                  end: FractionalOffset.topCenter,
+                                  colors: [
+                                Colors.black,
+                                Colors.transparent,
+                              ])),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              product.name,
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.white
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
-            ),
-            Image.network(
-                product.imageUrl,
-                height: 400,
-                fit: BoxFit.fitHeight,),
-            Text(
-              product.name,
-              style: TextStyle(
-                fontSize: 30,
-              ),
             ),
           ],
         ),
