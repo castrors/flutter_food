@@ -34,17 +34,24 @@ class DetailProduct extends StatelessWidget {
 
   Widget getReviews() {
     return Container(
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-              child: ListTile(
-            leading: Icon(Icons.people),
-            title: Text('${product.reviews[index].author} diz:'),
-            subtitle: Text('${product.reviews[index].comment}'),
-          ));
-        },
-        shrinkWrap: true,
-        itemCount: product.reviews.length,
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 16,),
+          Text('Últimas avaliações', style: TextStyle(fontSize: 20)),
+          SizedBox(height: 8,),
+          ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                  child: ListTile(
+                leading: Icon(Icons.people),
+                title: Text('${product.reviews[index].author} diz:'),
+                subtitle: Text('${product.reviews[index].comment}'),
+              ));
+            },
+            shrinkWrap: true,
+            itemCount: product.reviews.length,
+          ),
+        ],
       ),
     );
   }

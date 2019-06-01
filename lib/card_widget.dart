@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/product.dart';
+import 'package:flutter_food/rating_icon_widget.dart';
 
 class CardWidget extends StatelessWidget {
   final Product product;
@@ -31,14 +32,26 @@ class CardWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              Icons.monetization_on,
-                            ),
-                            Text(product.distance)
-                          ],
-                        ),
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  RatingIconWidget(
+                                    ammount: product.rate,
+                                    icon: Icon(
+                                      Icons.star,
+                                    ),
+                                  ),
+                                  RatingIconWidget(
+                                    ammount: product.price,
+                                    icon: Icon(
+                                      Icons.monetization_on,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ]),
                         Container(
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -52,10 +65,8 @@ class CardWidget extends StatelessWidget {
                             width: double.infinity,
                             child: Text(
                               product.name,
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.white
-                              ),
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
                             ),
                           ),
                         ),
