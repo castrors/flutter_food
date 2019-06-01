@@ -7,7 +7,7 @@ class Product {
   final String description;
   final String imageUrl;
   final int rate;
-  final double price;
+  final int price;
   final String distance;
   final List<Review> reviews;
   final Restaurant restaurant;

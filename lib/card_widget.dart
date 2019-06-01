@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/product.dart';
+import 'package:flutter_food/rating_icon_widget.dart';
 
 class CardWidget extends StatelessWidget {
   final Product product;
@@ -17,17 +18,32 @@ class CardWidget extends StatelessWidget {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  Icons.monetization_on,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    RatingIconWidget(
+                      ammount: product.rate,
+                      icon: Icon(
+                        Icons.star,
+                      ),
+                    ),
+                    RatingIconWidget(
+                      ammount: product.price,
+                      icon: Icon(
+                        Icons.monetization_on,
+                      ),
+                    ),
+                  ],
                 ),
                 Text(product.distance)
               ],
             ),
             Image.network(
-                product.imageUrl,
-                height: 400,
-                fit: BoxFit.fitHeight,),
+              product.imageUrl,
+              height: 400,
+              fit: BoxFit.fitHeight,
+            ),
             Text(
               product.name,
               style: TextStyle(
