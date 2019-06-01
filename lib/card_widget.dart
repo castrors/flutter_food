@@ -34,22 +34,27 @@ class CardWidget extends StatelessWidget {
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  RatingIconWidget(
-                                    ammount: product.rate,
-                                    icon: Icon(
-                                      Icons.star,
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    RatingIconWidget(
+                                      ammount: product.rate,
+                                      icon: Icon(
+                                        Icons.star,
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                  RatingIconWidget(
-                                    ammount: product.price,
-                                    icon: Icon(
-                                      Icons.monetization_on,
+                                    RatingIconWidget(
+                                      ammount: product.price,
+                                      icon: Icon(
+                                        Icons.attach_money,
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ]),
                         Container(
@@ -63,10 +68,13 @@ class CardWidget extends StatelessWidget {
                               ])),
                           child: SizedBox(
                             width: double.infinity,
-                            child: Text(
-                              product.name,
-                              style:
-                                  TextStyle(fontSize: 30, color: Colors.white),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                product.name,
+                                style:
+                                    TextStyle(fontSize: 30, color: Colors.white),
+                              ),
                             ),
                           ),
                         ),

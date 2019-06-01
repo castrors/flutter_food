@@ -10,7 +10,7 @@ class DetailProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Detail Product')),
+        appBar: AppBar(title: Text(product.name)),
         floatingActionButton: FloatingActionButton(child: Icon(Icons.shopping_cart), onPressed: () => {
           _launchURL(product.name)
         },),
@@ -20,7 +20,7 @@ class DetailProduct extends StatelessWidget {
               children: <Widget>[
                 Image.network(product.imageUrl),
                 ListTile(
-                  leading: Icon(Icons.casino),
+                  leading: Icon(Icons.fastfood),
                   title: Text(product.name),
                   subtitle: Text(product.description),
                 ),
