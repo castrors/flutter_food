@@ -25,7 +25,9 @@ class CardWidget extends StatelessWidget {
               ],
             ),
             Image.network(
-                product.imageUrl),
+                product.imageUrl,
+                height: 400,
+                fit: BoxFit.fitHeight,),
             Text(
               product.name,
               style: TextStyle(
