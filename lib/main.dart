@@ -47,7 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
               heroTag: 'negative',
               child: Icon(
                 Icons.close,
-              )),
+              ),
+              onPressed: () => {
+                controller.next()
+              },),
+              
           FloatingActionButton(
             heroTag: 'positive',
             child: Icon(Icons.check),
@@ -69,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget buildTinderCards() {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: MediaQuery.of(context).size.height * 0.3,
       child: Swiper(
         onIndexChanged: (int currentIndex) => {controller.index = currentIndex},
         itemBuilder: (BuildContext context, int index) {
