@@ -47,7 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
               heroTag: 'negative',
               child: Icon(
                 Icons.close,
-              )),
+              ),
+              onPressed: () => {
+                controller.next()
+              },),
+              
           FloatingActionButton(
             heroTag: 'positive',
             child: Icon(Icons.check),
