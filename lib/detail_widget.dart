@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/product.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailProduct extends StatelessWidget {
   final Product product;
@@ -10,6 +11,9 @@ class DetailProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text('Detail Product')),
+        floatingActionButton: FloatingActionButton(child: Icon(Icons.shopping_cart), onPressed: () => {
+          _launchURL(product.name)
+        },),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -31,6 +35,16 @@ class DetailProduct extends StatelessWidget {
           ),
         ));
   }
+
+  _launchURL(String query) async {
+  var url = 'https://www.ifood.com.br/busca?q=$query';
+  url = Uri.encodeFull(url);
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
   Widget getReviews() {
     return Container(
